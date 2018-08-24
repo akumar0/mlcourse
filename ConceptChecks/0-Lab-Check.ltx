@@ -1,0 +1,91 @@
+%updating.
+\section{Lab 0: Black box machine learning}
+\subsection{Machine learning}
+\subsubsection{Learning Objectives} % This is new.
+\begin{enumerate}
+\item What is machine learning for?
+\item What is machine learning?
+\item How do we frame a machine learning problem?
+\item How do we evaluate machine learning models?
+\item What can go wrong?
+\end{enumerate}
+\subsubsection{Concept Check Questions}
+
+\begin{enumerate}
+\item Give 3 examples of ML applications, and name what type of ML problem it is (e.g.~binary classification, regression, etc).
+\begin{solution}
+\item[]\Sol
+    \begin{itemize}
+        \item Spam detection: binary classification
+        \item Apartment sale price prediction: regression
+        \item Tree species identification: multiclass classification
+    \end{itemize}
+\end{solution}
+
+\item What is supervised machine learning?
+\begin{solution}
+\item[]\Sol The process of producing prediction function from a set of input and output pairs.
+\end{solution}
+
+\item What is feature extraction?
+\begin{solution}
+\item[]\Sol The process of mapping an input example into arrays of numeric values.
+\end{solution}
+
+\item What are the inputs of a loss function?
+\begin{solution}
+\item[]\Sol Inputs are an example and a model's output on that example.
+\end{solution}
+
+\item Is a small loss or a large loss preferable?
+\begin{solution}
+\item[]\Sol A small loss is better, since the loss measures how far off a prediction is from the target output.
+\end{solution}
+
+\item Write down a loss function for classification and a loss function for regression.
+\begin{solution}
+\item[]\Sol
+    \begin{itemize}
+        \item Classification loss: $1$ if prediction is wrong, $0$ is prediction is correct.
+        \item Regression loss: square loss $(predicted-target)^2$.
+    \end{itemize}
+\end{solution}
+
+\item Describe overfitting in 1 sentence.
+\begin{solution}
+\item[]\Sol If a model overfits if training performance is good, but validation/testing performance is poor.
+\end{solution}
+
+\item What is a hyper parameter? Name two examples of hyperparameters.
+\begin{solution}
+\item[]\Sol It's a parameter of the machine learning algorithm itself, e.g.~the degree of a polynomial that is being fit, or the number of words that a spam classifier takes into account.
+\end{solution}
+
+\item What is the difference between a validation set and a test set? Why would the performance on the two sets differ?
+\begin{solution}
+\item[]\Sol The validation set is used to find the best (out of many) model architecture for a problem, while the test set is used to evaluate the performance of the final (best) model. Since we are testing many different models on the validation set, it is possible that the model that achieved the best performance on the validation set ``was lucky''. Hence, it's performance on the validation set may be better than the performance would be on a random fresh sample (e.g.~the test set). We follow the principle: if you use a data set to train your model or choose a model, you should not evaluate the final performance on that data set. 
+\end{solution}
+
+\item Briefly explain how to perform k-fold cross-validation.
+\begin{solution}
+\item[]\Sol Split the data set into $k$ equally sized subsets $D_1, \ldots, D_k$. For each $D_i$, train a model on all data points that are not in $D_i$, and evaluate the model on $D_i$. Compute the cross-validation performance as the average of the performances computed on the $D_i$. Note that the cross-validation performance should not be used as a final performance measure!
+\end{solution}
+
+\item Briefly explain each of the following:
+    \begin{itemize}
+        \item Information leakage
+        \item Sample bias
+        \item Covariate drift
+        \item Concept drift
+    \end{itemize}
+\begin{solution}
+\item[]\Sol
+    \begin{itemize}
+        \item Information leakage: information about labels that is unavailable at deployment time is present in the features
+        \item Sample bias: test and deployment input distributions have different distributions
+        \item Covariate drift: the input distribution changes over time (as a result, the model ``ages'')
+        \item Concept drift: the correct label for a given input changes over time (as a result, the model ``ages'')
+    \end{itemize}
+\end{solution}
+
+\end{enumerate}
